@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  hbbs:
+    image: rustdesk/rustdesk-server:latest
+    container_name: hbbs
+    restart: unless-stopped
+    ports:
+      - "21115:21115"
+      - "21116:21116"
+      - "21116:21116/udp"
+      - "21118:21118"
+    volumes:
+      - ./docker/rustdesk:/root
+    command: hbbs -r "server_ip_address:21117"
+
+  hbbr:
+    image: rustdesk/rustdesk-server:latest
+    container_name: hbbr
+    restart: unless-stopped
+    ports:
+      - "21117:21117"
+      - "21119:21119"
+    volumes:
+      - ./docker/rustdesk:/root
+    command: hbbr
