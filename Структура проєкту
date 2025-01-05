@@ -1,0 +1,5 @@
+/your-project/
+├── Dockerfile
+├── docker-compose.yml
+└── docker/
+    └── rustdesk/   # Каталог для збереження даних
